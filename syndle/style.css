@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#guessBox{
+    margin: 0 auto;
+    width: 90%;
+    overflow-x: scroll;
+}
+table{
+    margin: 0 auto;
+}
+
+table td{
+    padding: 5px;
+    border: 1px solid grey;
+}
+
+td li{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin: 1px;
+}
+
+.correct{
+    background-color: green;
+    color: white;
+}
+.incorrect{
+    background-color: red;
+    color: white;
+}
+.partial{
+    background-color: rgb(255, 106, 0);
+    color: white;
+}
+.higher{
+    background-color: red;
+    color: white;
+}
+.higher::after{
+    content: " ↓";
+    margin-bottom: 5px;
+    font-size: x-large;
+}
+.lower{
+    background-color: red;
+    color: white;
+}
+.lower::after{
+    content: " ↑";
+    margin-bottom: 5px;
+    font-size: x-large;
+}
