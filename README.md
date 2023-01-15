@@ -24,7 +24,10 @@ Site de gestion d'une collection de DVDs.
 
 -- Captures d'écrans :
   - Page de recherche/liste des DVDs
+
 ![image](https://user-images.githubusercontent.com/97022820/212538879-4f9c9418-1d93-42ce-9aa2-6a20f4997952.png)
+
   - Page du jeu
+
 ![image](https://user-images.githubusercontent.com/97022820/212539084-41715fb4-c524-46df-81cc-7cbf376d8c26.png)
 
