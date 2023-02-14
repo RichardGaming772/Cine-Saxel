@@ -14,6 +14,9 @@ Site de gestion d'une collection de DVDs.
   - Statistiques basiques sur les utilisateurs (scores, entrées de données, nombre de films vu)
   
 -- Jeu pour deviner un film, tirer aléatoirement de cette collection de DVDs, dans le style de Wordle
+
+-- Installation :
+  - Pour installer le site sur un serveur, lancer le script DB_Base.sql et modifier les paramètres dans db.php
  
 -- TODOs :
   - Gestion du mode sombre/clair du site
