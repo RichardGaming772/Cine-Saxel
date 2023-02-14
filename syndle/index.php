@@ -167,7 +167,7 @@ if (!isset($_SESSION["films"])) {
                 }
                 create('li', directorList, director.name);
             });
-            directors.setAttribute('class', (correct == 0 ? "incorrect" : (correct == guess.directors.length ? "correct" : "partial")));
+            directors.setAttribute('class', (correct == 0 ? "incorrect" : (correct == guess.directors.length && correct == film.directors.length ? "correct" : "partial")));
             correct = 0;
             var actors = create('td', filmRow, '', ["class-actors"]);
             var actorList = create('ul', actors, '');
@@ -177,7 +177,7 @@ if (!isset($_SESSION["films"])) {
                 }
                 create('li', actorList, actor.name);
             });
-            actors.setAttribute('class', (correct == 0 ? "incorrect" : (correct == guess.actors.length ? "correct" : "partial")));
+            actors.setAttribute('class', (correct == 0 ? "incorrect" : (correct == guess.actors.length && correct == film.actors.length ? "correct" : "partial")));
             correct = 0;
             var genres = create('td', filmRow, '', ["class-genres"]);
             var genreList = create('ul', genres, '');
@@ -187,7 +187,7 @@ if (!isset($_SESSION["films"])) {
                 }
                 create('li', genreList, genre.genreName);
             });
-            genres.setAttribute('class', (correct == 0 ? "incorrect" : (correct == guess.genres.length ? "correct" : "partial")));
+            genres.setAttribute('class', (correct == 0 ? "incorrect" : (correct == guess.genres.length && correct == film.genres.length ? "correct" : "partial")));
             create('td', filmRow, guess.location, [(guess.location == film.location ? "class-correct" : (film.location.includes(guess.location.split(" ")[0]) ? "class-partial" : "class-incorrect"))]);
             create('td', filmRow, (guess.score == null) ? '-' : guess.score, [(guess.score == film.score ? "class-correct" : (film.score == null ? "class-incorrect" : (guess.score == null ? "class-incorrect" : (guess.score > film.score ? "class-higher" : "class-lower"))))]);
             tries++;

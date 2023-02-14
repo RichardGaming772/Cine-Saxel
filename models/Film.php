@@ -170,15 +170,13 @@ class Film extends Model implements \JsonSerializable
         }
 
         if (isset($filminfo["user"])) {
-            $sql = "INSERT INTO \"userScore\" (\"idFilm\",username,score) VALUES (?,?,?)";
-            $db->prepare($sql)->execute([$filminfo["idFilm"], $filminfo["user"], $filminfo["score"]]);
+            User::SetUserScore($filminfo["idFilm"],$filminfo["user"],$filminfo["score"]);
             if (isset($filminfo["seen"]) && $filminfo["seen"] == "on") {
                 $seen = true;
             } else {
                 $seen = false;
             }
-            $sql = "INSERT INTO \"userScore\" (\"idFilm\", username, seen) VALUES (?,?,?)";
-            $db->prepare($sql)->execute([$filminfo["idFilm"], $filminfo["user"], $seen]);
+            User::SetUserSeen($filminfo["idFilm"],$filminfo["user"],$seen);
             $sql = "INSERT INTO filmadded (\"idFilm\", username, date) VALUES (?,?,?)";
             $db->prepare($sql)->execute([$filminfo["idFilm"], $filminfo["user"], date('Y-m-d')]);
         } else {

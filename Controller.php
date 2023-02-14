@@ -7,13 +7,18 @@ if (isset($_POST["action"])) {
             break;
         case 'Rechercher':
             $search = ApiManager::findIMDBID($_POST["title"], $_POST["year"], $_POST["type"]);
-            $imdbID = $search[0];
-            $others = $search[1];
-            $_SESSION["others"] = $others;
+            if (gettype($search) == "array"){
+                $imdbID = $search[0];
+                $others = $search[1];
+                $_SESSION["others"] = $others;
+            } else {
+                $imdbID = $search;
+                $_SESSION["others"] = null;
+            }
             if (empty($imdbID)) {
                 header('Location: ./?page=searchresults-noresult');
             } else {
-                header('Location: ./?page=searchresults-' . $imdbID);
+               header('Location: ./?page=searchresults-' . $imdbID);
             }
             break;
         case 'Déconnection':

@@ -107,7 +107,7 @@ class ApiManager
             $temptype = "Movie";
         }
 
-        $regex = '#<span role="presentation" data-testid="plot-xl" class="sc-16ede01-2 qqCya">(.*?)(?:(?:</span>)|(?:<!--))#';
+        $regex = '#<span role="presentation" data-testid="plot-xl" class="(?:.*?)">(.*?)(?:(?:</span>)|(?:<!--))#';
         preg_match_all($regex, $page, $matches);
         $tempplot = $matches[1][0];
 

@@ -1,6 +1,7 @@
 <?php
 
 // DB connection
+
 $dsn = 'pgsql:dbname=myFilms;host=localhost';
 $user = 'postgres';
 $password = 'progres';

@@ -16,7 +16,6 @@ Site de gestion d'une collection de DVDs.
 -- Jeu pour deviner un film, tirer aléatoirement de cette collection de DVDs, dans le style de Wordle
  
 -- TODOs :
-  - Actualisation de la page d'accueil
   - Gestion du mode sombre/clair du site
   
 -- Notes :

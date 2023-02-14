@@ -115,7 +115,6 @@ class User extends Model implements \JsonSerializable
     public static function CreateUser($username)
     {
         global $db;
-        $username = strip_tags(preg_replace("#\'#", "''", $username));
         $st = $db->prepare("INSERT INTO film.user (username) VALUES(:username)");
         $st->bindParam(':username', $username, PDO::PARAM_STR);
         $st->execute();

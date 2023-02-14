@@ -1,4 +1,8 @@
 <?php
+if (!Film::inDB($_GET["page"])){
+    echo "<h4 class='autres'>Aucun film avec cet ID n'est présent dans la base de donnés.</h4>";
+    return false;
+}
 $film = Film::load($_GET["page"],"s");
 $film->FilmPage();
 ?>
@@ -29,10 +33,9 @@ $film->FilmPage();
             }
             return false;
         });
-        
         $user = reset($userlist);
         echo "<label>Mon Score (0-5): </label>\n";
-        echo "<input type=\"number\" name=\"Score\" value=\"".(gettype($user->filmScore) != "integer"?"":$user->filmScore)."\" max=\"5\" min=\"0\">";
+        echo "<input type=\"number\" name=\"Score\" value=\"".(empty($user)?"":(gettype($user->filmScore) != "integer"?"":$user->filmScore))."\" max=\"5\" min=\"0\">";
         echo "<label> Film vu : </label>\n";
         echo "<input type=\"checkbox\" name=\"Seen\" ".(empty($user)?"":"checked").">";
         echo "<input type=\"hidden\" name=\"user\" value=\"".$_SESSION["user"]."\">";
