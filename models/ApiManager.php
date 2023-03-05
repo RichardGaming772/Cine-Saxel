@@ -60,6 +60,7 @@ class ApiManager
 
     public static function getFilmPreview($page, $imdbID)
     {
+        //file_put_contents("page.txt", $page);
         $tempfilm = array();
 
         $regex = '#ref_=tt_cl_t[^>]*>([^<]*)#';
@@ -78,9 +79,13 @@ class ApiManager
         preg_match_all($regex, $page, $matches);
         $tempphoto = $matches[1][0];
 
-        $regex = '#data-testid="hero-title-block__title" class="(?:.*?)">(.*?)</h1>#';
+        $regex = '#(?:(?:data-testid="hero-title-block__title" class="(?:.*?)">(.*?)</h1>)|(?:data-testid="hero__pageTitle" class="(?:.*?)"><span class="(?:.*?)">(.*?)</span>))#m';
         preg_match_all($regex, $page, $matches);
-        $temptitle = $matches[1][0];
+        if (empty($matches[1][0])){
+            $temptitle = $matches[2][0];
+        } else {
+            $temptitle = $matches[1][0];
+        }
 
         $regex = '#ref_=tt_ov_rdat">([0-9]*?)(?:–(?: |[0-9]*?)|)<#';
         preg_match_all($regex, $page, $matches);
